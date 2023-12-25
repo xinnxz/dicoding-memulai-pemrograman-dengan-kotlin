@@ -30,12 +30,21 @@ package com.dicoding.exam.latihanopsional3
  */
 
 fun manipulateString(input: String, factor: Int): String {
-    val number = input.filter { it.isDigit() }
-    val string = input.filter { !it.isDigit() }
+    val number = StringBuilder()
+    val string = StringBuilder()
+
+    for (char in input) {
+        if (char.isDigit()) {
+            number.append(char)
+        } else {
+            string.append(char)
+        }
+    }
+
     return if (number.isNotEmpty()) {
-        string + (number.toInt() * factor)
+        string.toString() + (number.toString().toInt() * factor)
     } else {
-        string + factor
+        string.toString() + factor
     }
 }
 
